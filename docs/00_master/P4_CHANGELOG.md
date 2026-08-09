@@ -90,3 +90,14 @@
 - analysis impact: `REVIEW_REQUIRED`
 - required rerun: `uv run p4 docs sync && uv run p4 docs check`
 - gate impact: `REVIEW_REQUIRED`
+## 2026-08-09 · ec678fc5dedc
+
+- commitSha: `ec678fc5dedc0234e7b36edca891d8183f018736`
+- changeClass: `REVIEW_REQUIRED`
+- affectedArtifactIds: `REVIEW_REQUIRED`
+- code paths: `src/p4/docs/status.py`
+- contract impact: `REVIEW_REQUIRED`
+- data impact: `REVIEW_REQUIRED`
+- analysis impact: `REVIEW_REQUIRED`
+- required rerun: `uv run p4 docs sync && uv run p4 docs check`
+- gate impact: `REVIEW_REQUIRED`

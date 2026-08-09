@@ -1,14 +1,14 @@
 <!-- GENERATED_FILE -->
 <!-- generatorVersion: p4-docs-1.0.0 -->
-<!-- generatedAt: 2026-08-09T15:33:50+09:00 -->
-<!-- codeCommit: 8fe242ac72ed984267f6cae46ec398375c96231a -->
-<!-- inputArtifactSha: 9ba3e88e3906e363157aaee64fd7355be1190a62023ebfccf7c8d7670c1a281c -->
+<!-- generatedAt: 2026-08-09T15:38:01+09:00 -->
+<!-- codeCommit: ec678fc5dedc0234e7b36edca891d8183f018736 -->
+<!-- inputArtifactSha: 0fefd5fea824d6bc89d629c9ddc473740dc9814e0178e68aa6d99aa83c9e3a01 -->
 # P4 Current State
 
 ## Git
 
 - Branch: `refactor/ssot-v1.0.0-cleanroom`
-- Snapshot HEAD (latest code/config commit): `8fe242ac72ed984267f6cae46ec398375c96231a`
+- Snapshot HEAD (latest code/config commit): `ec678fc5dedc0234e7b36edca891d8183f018736`
 - main HEAD: `e94913c8c105120b3b811b444dc759ddf3628c5f`
 - Dirty implementation inputs: `false`
 
@@ -17,7 +17,7 @@
 - Package version: `1.0.0`
 - Contract version: `2.1.3`
 - Implemented modules: `37`
-- Tests: `0 passed / 0 failed / 0 skipped`
+- Tests: `22 passed / 0 failed / 0 skipped`
 
 ## Data and network authority
 
