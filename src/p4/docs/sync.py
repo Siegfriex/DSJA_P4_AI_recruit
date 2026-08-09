@@ -57,6 +57,9 @@ def build_generated_documents(root: Path, *, execute_tests: bool = True) -> dict
     )
     source = source_release_integrity(root)
     repo = repository_status(root, GENERATED_PATHS)
+    # Generated files cannot embed their own future commit SHA. The stable snapshot HEAD is
+    # therefore the latest commit that touched code/config/contracts/tests/scripts.
+    repo["head"] = commit
     modules = implementation_inventory(root)
     evidence = read_evidence(root)
     raw_replay = next(
@@ -98,7 +101,7 @@ def build_generated_documents(root: Path, *, execute_tests: bool = True) -> dict
         "## Git",
         "",
         f"- Branch: `{repo['branch']}`",
-        f"- HEAD: `{repo['head']}`",
+        f"- Snapshot HEAD (latest code/config commit): `{repo['head']}`",
         f"- main HEAD: `{repo['mainHead']}`",
         f"- Dirty excluding generated files: `{str(repo['dirty']).lower()}`",
         "",
