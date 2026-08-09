@@ -10,7 +10,7 @@ import yaml
 
 
 def _git(root: Path, *args: str) -> str:
-    return subprocess.check_output(["git", *args], cwd=root, text=True).strip()
+    return subprocess.check_output(["git", *args], cwd=root, text=True).rstrip()
 
 
 def code_commit(root: Path) -> str:
@@ -26,7 +26,7 @@ def generated_at(root: Path) -> str:
 
 def run_tests(root: Path) -> dict[str, int]:
     result = subprocess.run(
-        [sys.executable, "-m", "pytest", "-q", "-ra", "--disable-warnings"],
+        [sys.executable, "-m", "pytest", "-ra", "--disable-warnings"],
         cwd=root,
         text=True,
         stdout=subprocess.PIPE,
