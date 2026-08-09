@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import re
 import subprocess
 import sys
@@ -75,7 +76,10 @@ def repository_status(root: Path, generated_paths: set[str]) -> dict:
         path = line[3:].split(" -> ")[-1]
         if path not in generated_paths:
             dirty_rows.append(line)
-    main_head = _git(root, "rev-parse", "origin/main")
+    try:
+        main_head = _git(root, "rev-parse", "--verify", "refs/remotes/origin/main")
+    except subprocess.CalledProcessError:
+        main_head = os.environ.get("P4_MAIN_HEAD", "UNAVAILABLE_IN_SHALLOW_CHECKOUT")
     return {
         "branch": _git(root, "branch", "--show-current"),
         "head": _git(root, "rev-parse", "HEAD"),
