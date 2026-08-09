@@ -1,14 +1,14 @@
 <!-- GENERATED_FILE -->
 <!-- generatorVersion: p4-docs-1.0.0 -->
-<!-- generatedAt: 2026-08-09T15:32:12+09:00 -->
-<!-- codeCommit: 4cc1207ac5953976176c73e15c9f04bd085b3877 -->
-<!-- inputArtifactSha: ed8dfa330b260a8a6906f2ce30b410d86c087f6a6c67758c6eacd0b7f5c1877b -->
+<!-- generatedAt: 2026-08-09T15:33:50+09:00 -->
+<!-- codeCommit: 8fe242ac72ed984267f6cae46ec398375c96231a -->
+<!-- inputArtifactSha: 5b3f4abd969269ecf6e1e1750eb94b22faabace7cbb94ef304e3221659400588 -->
 # P4 Current State
 
 ## Git
 
 - Branch: `refactor/ssot-v1.0.0-cleanroom`
-- Snapshot HEAD (latest code/config commit): `4cc1207ac5953976176c73e15c9f04bd085b3877`
+- Snapshot HEAD (latest code/config commit): `8fe242ac72ed984267f6cae46ec398375c96231a`
 - main HEAD: `e94913c8c105120b3b811b444dc759ddf3628c5f`
 - Dirty implementation inputs: `false`
 
