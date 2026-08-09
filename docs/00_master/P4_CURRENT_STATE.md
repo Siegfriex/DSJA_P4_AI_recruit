@@ -1,14 +1,14 @@
 <!-- GENERATED_FILE -->
 <!-- generatorVersion: p4-docs-1.0.0 -->
-<!-- generatedAt: 2026-08-09T15:38:01+09:00 -->
-<!-- codeCommit: ec678fc5dedc0234e7b36edca891d8183f018736 -->
-<!-- inputArtifactSha: 0fefd5fea824d6bc89d629c9ddc473740dc9814e0178e68aa6d99aa83c9e3a01 -->
+<!-- generatedAt: 2026-08-09T15:39:37+09:00 -->
+<!-- codeCommit: b302856052361b06ff68acb4096e92f83ec53a03 -->
+<!-- inputArtifactSha: 56bddbf092bbbde3d6ba6ccc4561e9672dde7644478829a018984799370fea1f -->
 # P4 Current State
 
 ## Git
 
 - Branch: `refactor/ssot-v1.0.0-cleanroom`
-- Snapshot HEAD (latest code/config commit): `ec678fc5dedc0234e7b36edca891d8183f018736`
+- Snapshot HEAD (latest code/config commit): `b302856052361b06ff68acb4096e92f83ec53a03`
 - main HEAD: `e94913c8c105120b3b811b444dc759ddf3628c5f`
 - Dirty implementation inputs: `false`
 
@@ -37,7 +37,7 @@
 | DPDD_SSOT_V1_IMPORTED | PASS_WITH_FINDINGS |
 | LEGACY_CLEANUP_READY | PASS |
 | DOC_AUTOMATION_READY | PASS |
-| COLLECTION_PRODUCER_READY | PASS |
+| COLLECTION_PRODUCER_READY | PARTIAL |
 | RAW_TO_SEMANTIC_REPLAY_READY | PASS_WITH_FINDINGS |
 | STRUCTURAL_QA_READY | PASS |
 | SEMANTIC_QA_READY | NOT_EVALUATED |
