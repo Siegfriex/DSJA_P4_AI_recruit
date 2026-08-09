@@ -1,0 +1,42 @@
+name: P4 SSOT CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      P4_RUN_MODE: fixture
+      P4_NETWORK_ENABLED: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --all-groups --locked
+      - run: uv run ruff check .
+      - run: uv run pytest -ra
+      - run: uv run p4 contract validate
+      - run: uv run p4 docs check
+      - run: uv run python scripts/check_source_notebooks.py
+      - run: uv run python scripts/secret_scan.py
+      - name: Generated documents are current
+        run: |
+          uv run p4 docs sync
+          git diff --exit-code
+      - name: No tracked empirical bytes
+        run: |
+          if git ls-files | grep -E '\.(duckdb|parquet|html\.gz|onnx|npy|npz)$'; then
+            echo TRACKED_EMPIRICAL_BYTES
+            exit 1
+          fi
+      - name: Frozen release SHA is intact
+        run: |
+          cd docs
+          sha256sum -c 11_release/source_v1.0.0/EVIDENCE_MANIFEST_v1.0.0.sha256
