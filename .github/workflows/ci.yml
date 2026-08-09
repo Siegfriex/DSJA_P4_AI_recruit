@@ -42,5 +42,4 @@ jobs:
           fi
       - name: Frozen release SHA is intact
         run: |
-          cd docs
-          sha256sum -c 11_release/source_v1.0.0/EVIDENCE_MANIFEST_v1.0.0.sha256
+          uv run python -c "from pathlib import Path; from p4.docs.registry import source_release_integrity; result = source_release_integrity(Path.cwd()); print(result); raise SystemExit(bool(result['failures']))"
