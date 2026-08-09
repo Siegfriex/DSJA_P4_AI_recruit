@@ -89,7 +89,7 @@ def build_generated_documents(root: Path, *, execute_tests: bool = True) -> dict
         if (root / "docs/09_governance/CLEANUP_LEDGER.csv").is_file()
         else "BLOCKED",
         "DOC_AUTOMATION_READY": "PASS",
-        "COLLECTION_PRODUCER_READY": "PASS" if collection_tested else "BLOCKED",
+        "COLLECTION_PRODUCER_READY": "PARTIAL" if collection_tested else "BLOCKED",
         "RAW_TO_SEMANTIC_REPLAY_READY": (
             raw_replay["status"] if raw_replay else "PARTIAL" if collection_tested else "BLOCKED"
         ),
