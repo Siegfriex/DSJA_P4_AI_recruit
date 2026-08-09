@@ -125,18 +125,18 @@ sources:
     legacyPath: DSJA/project_4/integration/runs/M1_5_RECONCILIATION_20260807_06/pipeline_export
     legacySha256: 06854498990e4c78d63ae1a96a320be5a28375689566134b6ae5f2d1524ea4b2
     legacyStatus: OBSERVED_DEVELOPMENT_ONLY
-    newPath: data/staging/legacy_observed/M1_5_RECONCILIATION_20260807_06
-    migrationAction: LOCAL_DATA_ONLY
-    reason: Regression replay baseline never committed to Git
+    newPath: null
+    migrationAction: DELETED_FROM_ACTIVE_REPOSITORY
+    reason: Historical regression baseline removed for PURE_BOOTSTRAP reset
   - legacyRepo: SBS_dataScience
     legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
     legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
     legacyPath: DSJA/project_4/crawl/reports/reconciliation_a1/A1_RAW_OBJECT_MANIFEST.jsonl
     legacySha256: 7707f30b042238901326ba09024100b7f61a9565115d18fe2cbc33f195595a30
     legacyStatus: RAW_AUTHORITY_MANIFEST
-    newPath: manifests/checksums/legacy_raw_object_manifest.jsonl
-    migrationAction: LOCAL_DATA_ONLY
-    reason: Track checksums and relative locators but not raw HTML bytes
+    newPath: null
+    migrationAction: DELETED_FROM_ACTIVE_REPOSITORY
+    reason: Historical raw manifest removed with all active local data references
   - legacyRepo: SBS_P4_PROJECT4_DOCS
     legacyBranch: docs/p4-final-design-v4
     legacyCommit: 9a5e49d7ba73c81c3dc65b080bf267bc22f30936

@@ -7,4 +7,5 @@ requires evaluated NCS reference quality. A structural candidate or
 
 Monthly aggregation, HAC segmented regression, job/month panel analysis, 2023
 breakpoint, and 2026 comparable-window analysis are downstream work. They must
-not run on the observed migration snapshot as empirical evidence.
+not run on fixture or observed snapshots as empirical evidence. The current
+pure repository has zero active rows, so `ANALYSIS_READY=BLOCKED`.

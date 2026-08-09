@@ -5,10 +5,10 @@ from pathlib import Path
 import pandas as pd
 
 
-def load_units(path: Path) -> pd.DataFrame:
+def load_units(path: Path, *, expected_rows: int | None = None) -> pd.DataFrame:
     frame = pd.read_parquet(path)
-    if len(frame) != 13_442:
-        raise ValueError(f"NCS_UNIT_COUNT_DRIFT: {len(frame)}")
+    if expected_rows is not None and len(frame) != expected_rows:
+        raise ValueError(f"NCS_UNIT_COUNT_DRIFT: expected {expected_rows}, found {len(frame)}")
     if "ncsUnitCode" not in frame.columns:
         raise ValueError("NCS_UNIT_CODE_MISSING")
     if frame["ncsUnitCode"].isna().any() or frame["ncsUnitCode"].duplicated().any():

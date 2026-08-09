@@ -1,13 +1,21 @@
 modes:
+  bootstrap:
+    networkAllowed: false
+    empiricalAnalysisAllowed: false
+    dataAuthority: none
   fixture:
     networkAllowed: false
     empiricalAnalysisAllowed: false
+    dataAuthority: fixture-only
   observed:
     networkAllowed: false
     empiricalAnalysisAllowed: false
+    dataAuthority: diagnostic-only
   canary:
     networkAllowed: approval-bound
     empiricalAnalysisAllowed: false
+    dataAuthority: non-empirical
   production:
     networkAllowed: approval-bound
     empiricalAnalysisAllowed: release-gated
+    dataAuthority: release-candidate

@@ -1,36 +1,61 @@
 # DSJA P4 AI Recruit
 
-Canonical development base for the DSJA P4 Linkareer × NCS research system.
+Pure, local-first implementation base for the DSJA P4 Linkareer × NCS research
+system.
 
-The primary scope is fixed to Linkareer recruitment postings from 2020-01
-through 2026-07, AI·IT cohort selection, entry/intern/experienced structure,
-entry-barrier requirements, and NCS duty-level analysis.
+## Current state
 
-This repository starts a new Git history. The legacy repositories remain
-immutable evidence sources and are referenced by commit and SHA-256 in
-`manifests/legacy_sources.lock.yaml`; their generated runs are not imported as
-Git authority.
+`PURE_BOOTSTRAP`: the repository contains contracts, source modules, tests,
+environment examples, and implementation specifications. It intentionally
+contains zero source, observed, processed, NCS, mart, release, or article-result
+data.
 
-## Safety boundary
+Code existence is not execution authority. Collection, NCS promotion, marts,
+analysis, and article results remain blocked until their evidence gates pass.
 
-- Local migration and observed replay only until a separately signed approval.
-- Network-capable collection commands fail closed without `--approval-file`.
-- Linkareer, external ATS, browser, and credentialed API calls are zero for the
-  bootstrap migration.
-- `data/raw`, large Parquet/DuckDB files, executed notebooks, API caches,
-  embeddings, and LLM outputs are local-only.
-- Observed-development data is never production or article authority.
-
-## Quick start
+## Start here
 
 ```bash
-uv sync --all-groups
+uv sync --all-groups --locked
+set -a
+source env/bootstrap.env.example
+set +a
+uv run p4 env check
 uv run p4 contract validate
 uv run p4 data verify
-uv run p4 replay observed
-uv run p4 qa run
+uv run p4 status
 uv run pytest
 ```
 
-Research and promotion boundaries are defined in `docs/SSOT.md` and
-`docs/ANALYSIS_CONTRACT.md`.
+Expected bootstrap status:
+
+- configuration: `PASS`
+- contract bridge: `PASS`
+- data registry: `EMPTY_BOOTSTRAP`
+- repository status: `PURE_BOOTSTRAP_READY`
+- source, collection, NCS, and analysis gates: `BLOCKED`
+
+## Documentation authority
+
+1. `docs/SSOT.md`
+2. `docs/01_SYSTEM_DESIGN_SPEC.md`
+3. `docs/02_DETAILED_DESIGN.md`
+4. `docs/03_IMPLEMENTATION_RUNBOOK.md`
+5. `contracts/registry.yaml` and the selected contract
+6. `manifests/data_registry.yaml`
+7. current run artifacts and tests
+
+Historical migration evidence is reference-only and cannot populate the active
+data registry without a new, explicit import decision.
+
+## Safety boundary
+
+- No network execution in bootstrap or observed mode.
+- Canary and production require an external, unexpired approval bound to the
+  current source-policy and query-registry hashes.
+- A configured path does not make data trusted; registration, checksum,
+  provenance, structural QA, and semantic QA are separate gates.
+- Raw data, Parquet, DuckDB, executed notebooks, API caches, embeddings, model
+  outputs, approvals, and credentials remain local-only.
+- Never infer production, empirical, or article readiness from fixtures or
+  structural tests.

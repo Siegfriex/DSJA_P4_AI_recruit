@@ -20,6 +20,8 @@ jobs:
       - run: uv run ruff check .
       - run: uv run pytest
       - run: uv run p4 contract validate
+      - run: uv run p4 status
+      - run: uv run python scripts/validate_bootstrap.py
       - run: uv run python scripts/check_source_notebooks.py
       - run: uv run python scripts/secret_scan.py
       - name: Enforce no network tests

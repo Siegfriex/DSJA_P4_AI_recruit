@@ -4,6 +4,8 @@ primarySource: Linkareer
 referenceSource: NCS
 researchScope: LINKAREER_AI_IT_RECRUITMENT
 contractVersion: 2.1.3
-dataProvenanceDefault: OBSERVED_DEVELOPMENT_ONLY
+repositoryState: PURE_BOOTSTRAP
+activeDatasetCount: 0
+dataProvenanceDefault: UNSET
 empiricalAnalysisAllowedDefault: false
 articleResultAllowedDefault: false

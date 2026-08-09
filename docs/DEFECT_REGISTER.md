@@ -1,12 +1,14 @@
-# Defect Register
+# Defect and Gap Register
 
-| ID | Severity | Defect | Migration treatment | Status |
+| ID | Severity | Gap | Required closure | Status |
 |---|---|---|---|---|
-| MIG-P1-001 | P1 | degree/certificate facts lost in preprocessed export | evidence-driven aggregation | FIXED_PENDING_REPLAY |
-| MIG-P1-002 | P1 | inherited eligibility admitted source-unresolved rows | recompute fail closed | FIXED_PENDING_REPLAY |
-| MIG-P1-003 | P1 | label boundary included unrelated OTHER sections | required/preferred boundary only | FIXED_PENDING_REPLAY |
-| MIG-P2-001 | P2 | observed one-track placeholder could resemble production split | explicit observed status; production rejection | FIXED |
-| MIG-P2-002 | P2 | singleton observed dedup could resemble 90-day dedup | separate modes | FIXED |
-| LEG-P1-001 | P1 | 79-month production crawl incomplete | no migration-time network | OPEN |
-| LEG-P1-002 | P1 | 18 raw-to-posting bindings quarantined | retain quarantine | OPEN |
-| LEG-P1-003 | P1 | NCS bridge/reference quality not evaluated | no promotion | OPEN |
+| BOOT-P1-001 | P1 | Collection CLI validates approval but executes no transport | implement bounded orchestrator and fixture tests | OPEN |
+| BOOT-P1-002 | P1 | Approval has no signer/signature or budget-consumption verification | define signed schema and atomic budget ledger | OPEN |
+| BOOT-P1-003 | P1 | No production source data or accepted 79-month release | separately approve, collect, QA, and freeze release | OPEN |
+| BOOT-P1-004 | P1 | NCS reference hierarchy/bridge/gold quality absent | register official source and evaluate mapping | OPEN |
+| BOOT-P1-005 | P1 | RQ marts, analysis, and result manifest absent | build only after upstream gates | OPEN |
+| BOOT-P2-001 | P2 | Recorder metadata is not yet the complete raw-object manifest contract | add content hash, compressed bytes, source fingerprint, IDs | OPEN |
+| BOOT-P2-002 | P2 | Critical approval, parser, QA, CLI, and restart paths need broader tests | add fixture-based coverage and failure cases | OPEN |
+
+Legacy defects and their prior replay observations are historical context in
+`MIGRATION_AUDIT.md`; they are not active-data findings in the pure repository.

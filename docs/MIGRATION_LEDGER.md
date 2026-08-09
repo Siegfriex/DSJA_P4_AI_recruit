@@ -1,5 +1,8 @@
 # Migration Ledger
 
+> Historical provenance reference. Migrated local datasets were deleted on
+> 2026-08-09 and are not active inputs in the pure bootstrap repository.
+
 The machine-readable ledger is `manifests/legacy_sources.lock.yaml`. Every port
 records repository, branch, commit, path, SHA-256, destination, action, and
 reason. Generated runs and reports were not selected as source authority.

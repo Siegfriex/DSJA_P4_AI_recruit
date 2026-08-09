@@ -1,72 +1,25 @@
-registryVersion: 1
+registryVersion: 2
 asOfDate: '2026-08-09'
-datasets:
-  legacyObservedPosting:
-    pathClass: LOCAL_STAGING
-    localPath: data/staging/legacy_observed/M1_5_RECONCILIATION_20260807_06/posting_normalized.parquet
-    sha256: 915f147e6d81a55b8073a69346863764f0efe3208f5a4b9aff0b65bfda58196a
-    rows: 137
-    grain: posting
-    provenance: OBSERVED_DEVELOPMENT_ONLY
-    gitTracked: false
-  legacySourceBlock:
-    pathClass: LOCAL_STAGING
-    localPath: data/staging/legacy_observed/M1_5_RECONCILIATION_20260807_06/source_blocks.parquet
-    sha256: 30f5e1c9032df6d59c32584674792116c6f5b99cd3a44549195fdc828edb7fa1
-    rows: 84
-    grain: sourceBlock
-    provenance: OBSERVED_DEVELOPMENT_ONLY
-    gitTracked: false
-  legacySemanticChunk:
-    pathClass: LOCAL_STAGING
-    localPath: data/staging/legacy_observed/M1_5_RECONCILIATION_20260807_06/semantic_chunks.parquet
-    sha256: 8a9a3c98077ae11b11804aa617b9fec155d19149a3d3d6584839ecc58fadff36
-    rows: 277
-    grain: semanticChunk
-    provenance: OBSERVED_DEVELOPMENT_ONLY
-    gitTracked: false
-  legacyRequirementFact:
-    pathClass: LOCAL_STAGING
-    localPath: data/staging/legacy_observed/M1_5_RECONCILIATION_20260807_06/requirement_facts.parquet
-    sha256: ee1564520f196291a4b19350468726feb5472ce725d398054b60f0263d4ef101
-    rows: 41
-    grain: requirementFact
-    provenance: OBSERVED_DEVELOPMENT_ONLY
-    gitTracked: false
-  rawObservedObjects:
+state: EMPTY_BOOTSTRAP
+datasets: {}
+expectedSlots:
+  linkareerRaw:
     pathClass: LOCAL_RAW
-    localPath: data/raw/linkareer/detail/2021/03
-    manifest: manifests/checksums/legacy_raw_object_manifest.jsonl
-    rows: 29
-    grain: compressedRawObject
-    provenance: OBSERVED_DEVELOPMENT_ONLY
-    gitTracked: false
-  ncsUnitCandidate:
+    rootEnv: P4_RAW_ROOT
+    status: NOT_PRESENT
+    requiredBefore: SOURCE_DATA_READY
+  observedInput:
+    pathClass: LOCAL_STAGING
+    rootEnv: P4_OBSERVED_SOURCE_ROOT
+    status: NOT_PRESENT
+    requiredBefore: OBSERVED_REPLAY_READY
+  ncsUnit:
     pathClass: LOCAL_EXTERNAL
-    localPath: data/external/ncsUnit.parquet
-    sha256: b5b02ea232295931f245c69c881046a813f04cfbc517a13bc40d9e82994277c1
-    rows: 13442
-    grain: ncsAbilityUnit
-    provenance: LOCAL_OFFICIAL_SOURCE_CANDIDATE
-    gitTracked: false
-    promotionAllowed: false
-  migratedObservedPreprocessed:
-    pathClass: LOCAL_PROCESSED
-    localPath: data/processed/observed_replay/OBSERVED_MIGRATION_20260809_02/preprocessed_posting_tracks.parquet
-    sha256: 8bbfb54fc21fb1a29784f4c34f44e2f90e113d560f9516d4de02c745396a258c
-    rows: 137
-    grain: postingTrack
-    provenance: OBSERVED_DEVELOPMENT_ONLY
-    gitTracked: false
-    empiricalAnalysisAllowed: false
-    promotionAllowed: false
-  migratedObservedWarehouse:
-    pathClass: LOCAL_PROCESSED
-    localPath: data/processed/observed_replay/OBSERVED_MIGRATION_20260809_02/p4.observed-migration.duckdb
-    sha256: 00031f391295c1ad5f37c2fe09ac70b4ddc19f3f52e89c9b65262d0086dbc9b0
-    rows: 137
-    grain: multi-table observed warehouse
-    provenance: OBSERVED_DEVELOPMENT_ONLY
-    gitTracked: false
-    empiricalAnalysisAllowed: false
-    promotionAllowed: false
+    pathEnv: P4_NCS_UNIT_PATH
+    status: NOT_PRESENT
+    requiredBefore: NCS_REFERENCE_READY
+  productionRelease:
+    pathClass: LOCAL_RELEASE
+    rootEnv: P4_RELEASE_ROOT
+    status: NOT_PRESENT
+    requiredBefore: ANALYSIS_READY

@@ -11,3 +11,10 @@ minimum 80% success after five samples in a rolling window of twenty.
 
 Migration network count is zero. GitHub publication traffic is repository
 administration and is not a Linkareer/data-source call.
+
+## Current implementation boundary
+
+The policy client and approval hash checks exist, but collection orchestration
+does not yet execute transport. `COLLECTION_IMPLEMENTATION_READY` therefore
+remains `BLOCKED`. No approval file may be interpreted as permission beyond its
+explicit scope, expiry, hashes, and remaining request budget.

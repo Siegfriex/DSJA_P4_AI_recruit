@@ -9,13 +9,13 @@ import yaml
 
 from p4.collection.approval import Approval
 from p4.collection.canary import CanaryPlan
-from p4.io.hashing import sha256_file
+from p4.config import Settings
 from p4.io.paths import project_root
 from p4.ncs.corpus import corpus_status
 from p4.ncs.source import load_units
 from p4.processing.replay import replay_observed
-from p4.qa.gates import migration_gate_table
-from p4.qa.lineage import verify_checksum_manifest, verify_raw_objects
+from p4.qa.gates import bootstrap_gate_table
+from p4.qa.lineage import verify_data_registry
 from p4.qa.schema import validate_contract
 
 app = typer.Typer(no_args_is_help=True)
@@ -29,6 +29,7 @@ process_app = typer.Typer(no_args_is_help=True)
 ncs_app = typer.Typer(no_args_is_help=True)
 qa_app = typer.Typer(no_args_is_help=True)
 mart_app = typer.Typer(no_args_is_help=True)
+env_app = typer.Typer(no_args_is_help=True)
 app.add_typer(audit_app, name="audit")
 app.add_typer(contract_app, name="contract")
 app.add_typer(data_app, name="data")
@@ -39,18 +40,17 @@ app.add_typer(process_app, name="process")
 app.add_typer(ncs_app, name="ncs")
 app.add_typer(qa_app, name="qa")
 app.add_typer(mart_app, name="mart")
+app.add_typer(env_app, name="env")
 
 
 def _emit(payload: dict | list) -> None:
     typer.echo(json.dumps(payload, ensure_ascii=False, indent=2))
 
 
-def _observed_source(root: Path) -> Path:
-    return root / "data/staging/legacy_observed/M1_5_RECONCILIATION_20260807_06"
-
-
-def _replay_output(root: Path) -> Path:
-    return root / "data/processed/observed_replay/OBSERVED_MIGRATION_20260809_02"
+def _required_configured_path(value: Path | None, variable: str) -> Path:
+    if value is None:
+        raise typer.BadParameter(f"{variable} is not configured")
+    return value
 
 
 @audit_app.command("legacy")
@@ -67,33 +67,35 @@ def contract_validate() -> None:
     _emit(validate_contract(project_root()))
 
 
+@env_app.command("show")
+def env_show() -> None:
+    _emit(Settings.from_env().public_status())
+
+
+@env_app.command("check")
+def env_check() -> None:
+    settings = Settings.from_env()
+    payload = settings.public_status()
+    payload["status"] = "PASS"
+    _emit(payload)
+
+
 @data_app.command("verify")
 def data_verify() -> None:
-    root = project_root()
-    observed = verify_checksum_manifest(
-        root / "manifests/checksums/legacy_observed_CHECKSUMS.sha256", _observed_source(root)
-    )
-    raw = verify_raw_objects(root / "manifests/checksums/legacy_raw_object_manifest.jsonl", root)
-    ncs_path = root / "data/external/ncsUnit.parquet"
-    ncs = {
-        "status": "PASS",
-        "rows": int(len(load_units(ncs_path))),
-        "sha256": sha256_file(ncs_path),
-    }
-    _emit(
-        {
-            "status": "PASS" if observed["status"] == raw["status"] == "PASS" else "FAIL",
-            "observed": observed,
-            "raw": raw,
-            "ncs": ncs,
-        }
-    )
+    settings = Settings.from_env()
+    _emit(verify_data_registry(settings.root / "manifests/data_registry.yaml", settings))
 
 
 @replay_app.command("observed")
 def replay_observed_command() -> None:
-    root = project_root()
-    _emit(replay_observed(_observed_source(root), _replay_output(root)))
+    settings = Settings.from_env()
+    if settings.run_mode != "observed":
+        raise typer.BadParameter("P4_RUN_MODE=observed is required")
+    source = _required_configured_path(settings.observed_source_root, "P4_OBSERVED_SOURCE_ROOT")
+    output = _required_configured_path(settings.replay_output_root, "P4_REPLAY_OUTPUT_ROOT")
+    if not source.is_dir():
+        raise typer.BadParameter(f"observed source does not exist: {source}")
+    _emit(replay_observed(source, output))
 
 
 @canary_app.command("plan")
@@ -149,8 +151,11 @@ def process_release() -> None:
 
 @ncs_app.command("build")
 def ncs_build() -> None:
-    root = project_root()
-    _emit(corpus_status(load_units(root / "data/external/ncsUnit.parquet")))
+    settings = Settings.from_env()
+    path = _required_configured_path(settings.ncs_unit_path, "P4_NCS_UNIT_PATH")
+    if not path.is_file():
+        raise typer.BadParameter(f"NCS unit file does not exist: {path}")
+    _emit(corpus_status(load_units(path)))
 
 
 @ncs_app.command("map")
@@ -166,19 +171,10 @@ def ncs_map() -> None:
 
 @qa_app.command("run")
 def qa_run() -> None:
-    root = project_root()
-    contract = validate_contract(root)
-    observed = verify_checksum_manifest(
-        root / "manifests/checksums/legacy_observed_CHECKSUMS.sha256", _observed_source(root)
-    )
-    raw = verify_raw_objects(root / "manifests/checksums/legacy_raw_object_manifest.jsonl", root)
-    report_path = _replay_output(root) / "OBSERVED_REPLAY_REPORT.json"
-    replay = json.loads(report_path.read_text(encoding="utf-8")) if report_path.is_file() else None
-    _emit(
-        migration_gate_table(
-            replay=replay, contract=contract, data={"observed": observed, "raw": raw}
-        )
-    )
+    settings = Settings.from_env()
+    contract = validate_contract(settings.root)
+    data = verify_data_registry(settings.root / "manifests/data_registry.yaml", settings)
+    _emit(bootstrap_gate_table(root=settings.root, contract=contract, data=data))
 
 
 @mart_app.command("build")
@@ -189,6 +185,35 @@ def mart_build() -> None:
 @app.command("analyze")
 def analyze() -> None:
     raise typer.BadParameter("ANALYSIS_READY is BLOCKED")
+
+
+@app.command("status")
+def status() -> None:
+    settings = Settings.from_env()
+    contract = validate_contract(settings.root)
+    data = verify_data_registry(settings.root / "manifests/data_registry.yaml", settings)
+    gates = bootstrap_gate_table(root=settings.root, contract=contract, data=data)
+    bootstrap_ready = all(
+        item["status"] == "PASS"
+        for item in gates
+        if item["gate"]
+        in {
+            "REPOSITORY_BOOTSTRAP_READY",
+            "DESIGN_SPEC_READY",
+            "CONTRACT_BRIDGE_READY",
+            "ENVIRONMENT_TEMPLATE_READY",
+            "DATA_INVENTORY_EMPTY",
+        }
+    )
+    _emit(
+        {
+            "status": "PURE_BOOTSTRAP_READY" if bootstrap_ready else "BOOTSTRAP_BLOCKED",
+            "runMode": settings.run_mode,
+            "networkEnabled": settings.network_enabled,
+            "data": data,
+            "gates": gates,
+        }
+    )
 
 
 if __name__ == "__main__":

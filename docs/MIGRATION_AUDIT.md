@@ -1,5 +1,11 @@
 # P4 Clean Consolidation Migration Audit
 
+> Historical snapshot only. The local observed/raw/NCS/replay data described
+> below was deleted on 2026-08-09 by explicit user decision. The active
+> repository is now `PURE_BOOTSTRAP`; see `SSOT.md` and
+> `manifests/data_registry.yaml`. None of the row counts below is current data
+> authority.
+
 ## 1. Executive verdict
 
 The clean repository is a usable canonical development candidate with findings.

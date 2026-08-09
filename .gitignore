@@ -19,6 +19,10 @@ data/marts/**
 data/releases/**
 !data/fixtures/
 !data/fixtures/**
+!data/**/.gitkeep
+
+# Local approvals and operator-only material.
+local/
 
 # Generated runs and large machine artifacts.
 artifacts/runs/**
