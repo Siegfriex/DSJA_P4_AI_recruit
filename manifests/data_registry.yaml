@@ -1,0 +1,25 @@
+registryVersion: 2
+asOfDate: '2026-08-09'
+state: CLEANROOM_FIXTURE_ONLY
+datasets: {}
+expectedSlots:
+  linkareerRaw:
+    pathClass: LOCAL_RAW
+    rootEnv: P4_RAW_ROOT
+    status: NOT_PRESENT
+    requiredBefore: CRAWL_RELEASE_READY
+  observedInput:
+    pathClass: LOCAL_STAGING
+    rootEnv: P4_OBSERVED_SOURCE_ROOT
+    status: NOT_PRESENT
+    requiredBefore: RAW_TO_SEMANTIC_REPLAY_READY
+  ncsUnit:
+    pathClass: LOCAL_EXTERNAL
+    pathEnv: P4_NCS_UNIT_PATH
+    status: NOT_PRESENT
+    requiredBefore: NCS_REFERENCE_READY
+  productionRelease:
+    pathClass: LOCAL_RELEASE
+    rootEnv: P4_RELEASE_ROOT
+    status: NOT_PRESENT
+    requiredBefore: ANALYSIS_READY

@@ -1,0 +1,10 @@
+scopeVersion: core-ai-it-v0.1
+status: REVIEW_REQUIRED
+includedPrefixes:
+  - '20-01'
+excludedPrefixes:
+  - '20-02'
+  - '20-03'
+expectedIncludedCodeCount: 69
+expectedExcludedCodeCount: 51
+qualityEvaluated: false

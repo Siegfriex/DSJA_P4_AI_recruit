@@ -1,0 +1,13 @@
+registryVersion: p4-cleanroom-query-registry-v1
+status: FROZEN_NO_LIVE_EXECUTION
+operations:
+  CalendarScreen_ActivityCalendarEntries:
+    transport: APQ_GET
+    verificationStatus: LEGACY_VERIFIED
+  CalendarScreen_Activities:
+    transport: APQ_GET
+    verificationStatus: LEGACY_VERIFIED
+  DetailPage:
+    transport: HTTP_GET
+    verificationStatus: MOCK_VERIFIED
+networkExecutionAllowed: false
