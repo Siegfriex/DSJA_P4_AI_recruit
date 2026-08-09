@@ -1,0 +1,148 @@
+manifestVersion: 1
+frozenAt: '2026-08-09T00:00:00+09:00'
+policy: NO_UNRECORDED_PORTS
+sources:
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/shared/contracts/P4_CONTRACT_v2.1.2/p4_contract.yaml
+    legacySha256: f92380cdfc16967f1e363800cd9a575e44532f18a86b2f28f8c3e2404ed675e9
+    legacyStatus: CANONICAL_LEGACY
+    newPath: contracts/v2.1.2_legacy/p4_contract.yaml
+    migrationAction: PORT
+    reason: Exact 26-table compatibility authority
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/shared/contracts/semantic_ncs_reference/v4.0/schemas/source_block.schema.json
+    legacySha256: 4a6603deded33dcfef54e32900dceefcfa288b88361d5f3ccbf6b311dfe06b38
+    legacyStatus: IMPLEMENTED_V4_EXTENSION
+    newPath: contracts/schemas/v4_extensions/source_block.schema.json
+    migrationAction: PORT
+    reason: Executed 84-row source-block entity authority
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/shared/contracts/semantic_ncs_reference/v4.0/schemas/semantic_chunk.schema.json
+    legacySha256: 424b13e02a20057575a7e9bd6454d5e293ba70d504ffbad430ad2ea6646707fe
+    legacyStatus: IMPLEMENTED_V4_EXTENSION
+    newPath: contracts/schemas/v4_extensions/semantic_chunk.schema.json
+    migrationAction: PORT
+    reason: Executed 277-row semantic-chunk entity authority
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-canary-acceptance-v1
+    legacyCommit: 8a15618fd0d45d15c6fd2e9c04de55fb21700428
+    legacyPath: DSJA/project_4/crawl/src/p4_crawl/policy.py
+    legacySha256: 0f64f948b875a38434b4a05af31a0d3dee6115f2d0251b94dfe4129af79cdf92
+    legacyStatus: TESTED_CANARY_CONTROL
+    newPath: src/p4/collection/policy.py
+    migrationAction: PORT_AND_FIX
+    reason: Preserve retry backoff 403 429 and success-rate fail-closed behavior
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-canary-acceptance-v1
+    legacyCommit: 8a15618fd0d45d15c6fd2e9c04de55fb21700428
+    legacyPath: DSJA/project_4/crawl/src/p4_crawl/detail.py
+    legacySha256: 0fcc790338f06628aefee181aaabf1b1d9cbcda38e0b67fca042b8611c43b279
+    legacyStatus: OBSERVED_REPLAY_VERIFIED
+    newPath: src/p4/collection/detail.py
+    migrationAction: PORT
+    reason: SSR Next data and unambiguous ActivityText recovery
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-canary-acceptance-v1
+    legacyCommit: 8a15618fd0d45d15c6fd2e9c04de55fb21700428
+    legacyPath: DSJA/project_4/crawl/src/p4_crawl/assets.py
+    legacySha256: 37a387a91759e0dfa8406b050e8438a59b717ba33df442fddf66b978651e7dee
+    legacyStatus: METADATA_ONLY
+    newPath: src/p4/collection/assets.py
+    migrationAction: PORT_AND_FIX
+    reason: Retain only Linkareer-hosted asset detection
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/pipeline/src/p4/export/observed.py
+    legacySha256: 41fb24c3e2e10a5c02d6065286918878ed43d5f4e1b58f7e4c872dc95427f710
+    legacyStatus: EXECUTED_WITH_SEMANTIC_DEFECT
+    newPath: src/p4/processing/requirements.py
+    migrationAction: PORT_AND_FIX
+    reason: Remove hard-coded loss of degree certificate project and tool facts
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/pipeline/src/p4/normalize/eligibility.py
+    legacySha256: c770d5f0ef5562e3c417157b3526a5bd25747a4ddfb6e1597ebd21733b8ede0b
+    legacyStatus: EXECUTED_WITH_AUTHORITY_DRIFT
+    newPath: src/p4/processing/eligibility.py
+    migrationAction: PORT_AND_FIX
+    reason: Recompute fail-closed flags from current source and boundary authority
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/pipeline/src/p4/dedup/reposts.py
+    legacySha256: 15022b534182dcee496924a729cdccd419fbf673b84ea87b6045752a3d44d9f6
+    legacyStatus: PRODUCTION_ALGORITHM_NOT_RUN
+    newPath: src/p4/processing/dedup.py
+    migrationAction: REWRITE
+    reason: Separate observed unresolved records from production 90-day groups
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/pipeline/src/p4/label/career.py
+    legacySha256: 62a29a13ce69929fecf4f115917af93a5f30240ba48e5bc62b2b7706cce2e74e
+    legacyStatus: IMPLEMENTED_UNRESOLVED_OBSERVED
+    newPath: src/p4/processing/labels.py
+    migrationAction: PORT_AND_FIX
+    reason: Resolve labels only from required or preferred section boundaries
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/ncs_mapping/src/p4_ncs/ingest/ncs_unit_source.py
+    legacySha256: 99d5ab2d107ee27dd2a4edd202290da4ce4ef0af45aea4948f1cce9421ed0a7e
+    legacyStatus: LOCAL_CANDIDATE_CORPUS
+    newPath: src/p4/ncs/source.py
+    migrationAction: PORT
+    reason: Validate the 13442-row local official-source unit corpus
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/ncs_mapping/src/p4_ncs/retrieval/lexical_index.py
+    legacySha256: fc4203bb19aa5b356d772631739614b4a2398ff79e502f6a67ef6cc1582aa9df
+    legacyStatus: TESTED_LOCAL_RETRIEVAL
+    newPath: src/p4/ncs/retrieval.py
+    migrationAction: PORT
+    reason: Preserve deterministic lexical baseline only
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/ncs_mapping/src/p4_ncs/reference/contracts.py
+    legacySha256: 5ec332a08ab2a8f77fd3743cf8f47c2fce63363c7e260ff33c493056fafdeb97
+    legacyStatus: CONTRACT_IMPLEMENTED_RUNTIME_NOT_EVALUATED
+    newPath: src/p4/ncs/reference.py
+    migrationAction: PORT_AND_FIX
+    reason: Keep LLM_REFERENCE separate from HUMAN_GOLD and model prediction
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/integration/runs/M1_5_RECONCILIATION_20260807_06/pipeline_export
+    legacySha256: 06854498990e4c78d63ae1a96a320be5a28375689566134b6ae5f2d1524ea4b2
+    legacyStatus: OBSERVED_DEVELOPMENT_ONLY
+    newPath: data/staging/legacy_observed/M1_5_RECONCILIATION_20260807_06
+    migrationAction: LOCAL_DATA_ONLY
+    reason: Regression replay baseline never committed to Git
+  - legacyRepo: SBS_dataScience
+    legacyBranch: integration/p4-m1_5-unified-reconciliation-v2
+    legacyCommit: f30f1a386895ac4f165ed390ee038a833c2a8012
+    legacyPath: DSJA/project_4/crawl/reports/reconciliation_a1/A1_RAW_OBJECT_MANIFEST.jsonl
+    legacySha256: 7707f30b042238901326ba09024100b7f61a9565115d18fe2cbc33f195595a30
+    legacyStatus: RAW_AUTHORITY_MANIFEST
+    newPath: manifests/checksums/legacy_raw_object_manifest.jsonl
+    migrationAction: LOCAL_DATA_ONLY
+    reason: Track checksums and relative locators but not raw HTML bytes
+  - legacyRepo: SBS_P4_PROJECT4_DOCS
+    legacyBranch: docs/p4-final-design-v4
+    legacyCommit: 9a5e49d7ba73c81c3dc65b080bf267bc22f30936
+    legacyPath: docs/ssot/P4_PROJECT_SSOT_v2.1.md
+    legacySha256: cbfbaf13504b1894eacae695e5fa842929c43ce4683c83ee8ae33e1f81974e8a
+    legacyStatus: RESEARCH_DESIGN_AUTHORITY
+    newPath: docs/SSOT.md
+    migrationAction: REWRITE
+    reason: Consolidate current Linkareer NCS scope without stale run state

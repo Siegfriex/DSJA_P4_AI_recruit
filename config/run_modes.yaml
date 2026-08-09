@@ -1,0 +1,13 @@
+modes:
+  fixture:
+    networkAllowed: false
+    empiricalAnalysisAllowed: false
+  observed:
+    networkAllowed: false
+    empiricalAnalysisAllowed: false
+  canary:
+    networkAllowed: approval-bound
+    empiricalAnalysisAllowed: false
+  production:
+    networkAllowed: approval-bound
+    empiricalAnalysisAllowed: release-gated

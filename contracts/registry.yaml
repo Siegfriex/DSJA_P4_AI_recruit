@@ -1,0 +1,22 @@
+registryVersion: 1
+canonicalCandidate: 2.1.3
+contracts:
+  '2.1.2':
+    status: LEGACY_IMMUTABLE
+    path: contracts/v2.1.2_legacy/p4_contract.yaml
+    compatibilityRequired: true
+  '2.1.3':
+    status: BRIDGE_CANDIDATE
+    path: contracts/v2.1.3_bridge/p4_contract.yaml
+    schema: contracts/v2.1.3_bridge/bridge.schema.json
+    ddl: contracts/v2.1.3_bridge/warehouse_duckdb.sql
+    baseVersion: 2.1.2
+    addedCanonicalEntities:
+      - core.postingSourceBlock
+      - core.sectionSourceBlock
+      - core.semanticChunk
+extensions:
+  semanticNcsReferenceV4:
+    status: IMPLEMENTED_CONTRACT_NOT_CANONICAL_TABLES
+    path: contracts/schemas/v4_extensions
+    canonicalTables: []

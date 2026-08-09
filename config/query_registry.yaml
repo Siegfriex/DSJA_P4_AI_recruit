@@ -1,0 +1,10 @@
+registryVersion: legacy-observed-query-registry-v1
+status: MIGRATED_NOT_LIVE_REVERIFIED
+operations:
+  CalendarScreen_ActivityCalendarEntries:
+    transport: APQ_GET
+    verificationStatus: LEGACY_VERIFIED
+  CalendarScreen_Activities:
+    transport: APQ_GET
+    verificationStatus: LEGACY_VERIFIED
+networkExecutionAllowed: false

@@ -1,0 +1,9 @@
+projectId: DSJA_P4_AI_RECRUIT
+timezone: Asia/Seoul
+primarySource: Linkareer
+referenceSource: NCS
+researchScope: LINKAREER_AI_IT_RECRUITMENT
+contractVersion: 2.1.3
+dataProvenanceDefault: OBSERVED_DEVELOPMENT_ONLY
+empiricalAnalysisAllowedDefault: false
+articleResultAllowedDefault: false

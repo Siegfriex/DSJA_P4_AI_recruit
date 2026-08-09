@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dsja.local/p4/contracts/2.1.3/bridge.schema.json",
+  "title": "P4 contract 2.1.3 compatibility bridge",
+  "type": "object",
+  "required": ["contractVersion", "status", "rules", "foreignKeys", "tables"],
+  "properties": {
+    "contractVersion": {"const": "2.1.3"},
+    "status": {"const": "compatibility-bridge-candidate"},
+    "rules": {
+      "type": "object",
+      "required": ["reservedFields", "eligibility"],
+      "properties": {
+        "reservedFields": {
+          "type": "object",
+          "required": ["highDemandScore"]
+        }
+      }
+    },
+    "foreignKeys": {"type": "array"},
+    "tables": {
+      "type": "object",
+      "minProperties": 29,
+      "required": [
+        "core.postingSourceBlock",
+        "core.sectionSourceBlock",
+        "core.semanticChunk"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,10 @@
+gates:
+  NEW_REPO_BOOTSTRAPPED: repository
+  LEGACY_PROVENANCE_FROZEN: provenance
+  CONTRACT_2_1_3_READY: contract
+  CORE_MODULES_MIGRATED: code
+  OBSERVED_DATA_MIGRATED: local-data
+  OBSERVED_REPLAY_READY: replay
+  STRUCTURAL_QA_READY: structural-qa
+  SEMANTIC_REMEDIATION_READY: semantic-qa
+  CANARY_PREFLIGHT_READY: approval-preflight

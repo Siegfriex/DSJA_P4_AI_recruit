@@ -1,0 +1,16 @@
+policyVersion: p4-linkareer-source-policy-v2
+allowedHosts:
+  - linkareer.com
+  - '*.linkareer.com'
+externalAtsAllowed: false
+requestsPerSecond: 1.0
+maxConcurrency: 2
+maxRetries: 3
+backoffPolicy: exponential-jitter
+maxConsecutive403: 1
+maxConsecutive429: 3
+minimumSuccessRate: 0.80
+successWindow: 20
+minimumSuccessSamples: 5
+maxEmptyPageStreak: 2
+approvalRequiredForNetwork: true
