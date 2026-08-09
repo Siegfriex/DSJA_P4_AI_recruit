@@ -81,7 +81,7 @@ def repository_status(root: Path, generated_paths: set[str]) -> dict:
     except subprocess.CalledProcessError:
         main_head = os.environ.get("P4_MAIN_HEAD", "UNAVAILABLE_IN_SHALLOW_CHECKOUT")
     return {
-        "branch": _git(root, "branch", "--show-current"),
+        "branch": os.environ.get("P4_BRANCH_NAME") or _git(root, "branch", "--show-current"),
         "head": _git(root, "rev-parse", "HEAD"),
         "mainHead": main_head,
         "dirty": bool(dirty_rows),
