@@ -35,3 +35,25 @@
 - analysis impact: `REVIEW_REQUIRED`
 - required rerun: `uv run p4 docs sync && uv run p4 docs check`
 - gate impact: `REVIEW_REQUIRED`
+## 2026-08-09 · a2bc6716c7fc
+
+- commitSha: `a2bc6716c7fcc9b4da07ab04d7022fea59814280`
+- changeClass: `REVIEW_REQUIRED`
+- affectedArtifactIds: `docs/00_master/P4_CHANGELOG.md`
+- code paths: `docs/00_master/P4_CHANGELOG.md, src/p4/docs/sync.py`
+- contract impact: `REVIEW_REQUIRED`
+- data impact: `REVIEW_REQUIRED`
+- analysis impact: `REVIEW_REQUIRED`
+- required rerun: `uv run p4 docs sync && uv run p4 docs check`
+- gate impact: `REVIEW_REQUIRED`
+## 2026-08-09 · 5a5dd5fd7c20
+
+- commitSha: `5a5dd5fd7c201ae2b0c0092a57971df1e3ed04b2`
+- changeClass: `REVIEW_REQUIRED`
+- affectedArtifactIds: `REVIEW_REQUIRED`
+- code paths: `src/p4/docs/sync.py`
+- contract impact: `REVIEW_REQUIRED`
+- data impact: `REVIEW_REQUIRED`
+- analysis impact: `REVIEW_REQUIRED`
+- required rerun: `uv run p4 docs sync && uv run p4 docs check`
+- gate impact: `REVIEW_REQUIRED`
