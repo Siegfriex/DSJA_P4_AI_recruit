@@ -1,0 +1,79 @@
+evidenceId: EVIDENCE-P4-RAW29-CLEANROOM-REPLAY-001
+runId: P4_RAW29_CLEANROOM_20260809_001
+stageId: RAW_TO_SEMANTIC_REPLAY
+codeCommit: 464ec546c637bc92c1d107ad5ab1d6b2e4e3de17
+contractVersion: 2.1.3
+taxonomyVersions:
+  section: v1.0.0
+  requirement: v1.0.0
+inputManifestSha256: f12680f1d598f70df576f0af4743c5e9c49df7caf16eccb1d898bded5eb3dfbe
+outputManifestSha256: 50fe46c4b808a02611416d783f19541b9fd1df1e0118e555dc77f3d42f6d1a41
+rowCounts:
+  raw_posting_version: 29
+  posting_normalized: 29
+  posting_source_block: 29
+  posting_track: 29
+  posting_section: 84
+  section_source_block: 84
+  semantic_chunk: 340
+  chunk_source_block: 340
+  requirement_mention: 35
+  requirement_fact: 35
+  requirement_fact_mention: 35
+schemaSignatures:
+  raw_posting_version: 5b893b604f76552d45a448d5da1b7eb59c6784b27146f3f21f178ec19556eee1
+  posting_normalized: 1c2b4d6a8253972bd32fab353c9349f291fb6113c0e3b0e0415a2ffcbc5ced55
+  posting_source_block: 3565f4f90aa75b78a613c07cf54acb913abf2c6c652416b38040c7eb417b80d9
+  posting_track: 1b8ea48812d3afe2bbe64872ab4fc8782a0987c9ac305e09c8b80889e54ee916
+  posting_section: 114351455286475825a2cbf33b780b3415c228d9ca0e2d9b1d5cfa14bb5de206
+  section_source_block: 1502ff48f8085a068034e0b3a1577a7f7a758aae42c8919e9bb001c76a405239
+  semantic_chunk: d886eebca7c33989081f796deefa44aa9e077cf321d4387c47a527721691bbfb
+  chunk_source_block: 33d8b006de9b744774690ac8051bed814192d8ac4f0ba93a3a3801b5aa9e8688
+  requirement_mention: 9066af8c0c8e6dfe87f2b23ef562bc5a8e67795d58fad23373a5c41a59d874e2
+  requirement_fact: 30812b4aa7d35fa30a1ca30e7ad94c9a754792653b9be9809493fb207c4eff4b
+  requirement_fact_mention: a22556c150590b35ec0e142288a3f10e63c2d2120b5dc45d936fa1a95550001c
+qualityResults:
+  inputRawCount: 29
+  successfulRawCount: 29
+  failures: []
+  foreignKeyViolations: 0
+  eligibleSectionEvidenceCoverage: 1.0
+  eligibleChunkPrimaryEvidenceCoverage: 1.0
+  factEvidenceLinkage: 1.0
+  deterministicIdsAndRepeatRun: true
+  legacyDeltas:
+  - artifact: posting_normalized
+    old: 29
+    new: 29
+    delta: 0
+    cause: COUNT_EQUAL
+    classification: EXPECTED
+  - artifact: posting_source_block
+    old: NOT_AVAILABLE
+    new: 29
+    delta: NOT_COMPARABLE
+    cause: REVIEW_REQUIRED
+    classification: REVIEW_REQUIRED
+  - artifact: posting_section
+    old: 84
+    new: 84
+    delta: 0
+    cause: COUNT_EQUAL
+    classification: EXPECTED
+  - artifact: semantic_chunk
+    old: NOT_AVAILABLE
+    new: 340
+    delta: NOT_COMPARABLE
+    cause: REVIEW_REQUIRED
+    classification: REVIEW_REQUIRED
+  - artifact: requirement_fact
+    old: 35
+    new: 35
+    delta: 0
+    cause: COUNT_EQUAL
+    classification: EXPECTED
+testLogSha256: c921530e966da62cd547ab079a12cf65f91715fdebab8626582dc1c05821de2f
+networkCalls: 0
+createdAt: '2026-08-09T06:26:21.966831+00:00'
+status: PASS_WITH_FINDINGS
+dataAuthority: OBSERVED_EXECUTED_NOT_PROMOTED

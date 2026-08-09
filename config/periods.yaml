@@ -1,0 +1,6 @@
+targetStartMonth: '2020-01'
+targetEndMonth: '2026-07'
+targetMonthCount: 79
+excludedExploration:
+  - period: '2019'
+    reason: PRE_STABLE_PLATFORM_REFERENCE_ONLY

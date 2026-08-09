@@ -1,0 +1,44 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local data. Tiny fixtures are explicitly re-included.
+data/raw/**
+data/external/**
+data/staging/**
+data/processed/**
+data/reference/**
+data/marts/**
+data/releases/**
+!data/fixtures/
+!data/fixtures/**
+!data/**/.gitkeep
+
+# Local approvals and operator-only material.
+local/
+
+# Generated runs and large machine artifacts.
+artifacts/**
+!artifacts/.gitkeep
+*.duckdb
+*.parquet
+data/**/*.html
+*.html.gz
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.npy
+*.npz
+*.onnx
+
+# Source notebooks are tracked; executed copies are not.
+notebooks/executed/
+.ipynb_checkpoints/

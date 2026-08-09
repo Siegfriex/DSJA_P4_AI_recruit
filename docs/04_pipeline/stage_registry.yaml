@@ -1,0 +1,24 @@
+registryVersion: 1.0.0
+stages:
+  - {id: S0, name: period_plan, output: month_plan}
+  - {id: S1, name: index_discovery, output: index_discovery}
+  - {id: S2, name: detail_raw, output: raw_posting_version}
+  - {id: S3, name: asset_ocr, output: asset_and_ocr}
+  - {id: S4, name: posting_normalization, output: posting_normalized}
+  - {id: S5, name: source_block, output: posting_source_block}
+  - {id: S6, name: track_split, output: posting_track}
+  - {id: S7, name: section, output: posting_section_and_bridge}
+  - {id: S8, name: chunk, output: semantic_chunk_and_bridge}
+  - {id: S9, name: atomic_facts, output: mentions_and_facts}
+  - {id: S10, name: labels, output: career_intern_extension_labels}
+  - {id: S11, name: dedup, output: dedup_membership}
+  - {id: S12, name: rq1_rq2a_marts, output: rq1_rq2a}
+  - {id: S13, name: ncs_freeze, output: frozen_ncs_corpus}
+  - {id: S14, name: ncs_candidates, output: ncs_candidate}
+  - {id: S15, name: ncs_reference, output: candidate_scores_and_reference}
+  - {id: S16, name: accepted_mapping, output: mapping_terminal}
+  - {id: S17, name: ncs_level_band, output: mapped_level_band}
+  - {id: S18, name: rq2b_marts, output: rq2b}
+  - {id: S19, name: statistical_analysis, output: results}
+  - {id: S20, name: sidecar_evidence, output: contextual_qualitative}
+  - {id: S21, name: publication, output: result_manifest_and_claims}

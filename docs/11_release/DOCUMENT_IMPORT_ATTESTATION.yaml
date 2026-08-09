@@ -1,0 +1,10 @@
+sourcePath: /home/sieg/projects-wsl/DSJA_P4_AI_recruit/P4_DPDD_SSOT_v1.0.0
+sourceReleaseId: P4-DPDD-SSOT-1.0.0
+sourceManifestSha: 411393bd57ef81971ce2b9c079fb82ba8e356773ae5a5e5848cf76e1986803da
+importCommit: c1cdec4f56e174c9d15734afd3be7cffcfef1abe
+importedFileCount: 49
+importedShaManifest: 540c5314362ce08422eaf15e0c6faf587d8dc7f40e2e39288dd23d764b40ef5b
+importedAt: '2026-08-09T15:00:34+09:00'
+status: PASS_WITH_FINDINGS
+findings:
+  - SOURCE_ARTIFACT_ID_README_DUPLICATED; frozen source retained byte-for-byte and canonical registry IDs are path-derived

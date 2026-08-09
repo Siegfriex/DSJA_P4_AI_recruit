@@ -1,0 +1,75 @@
+fileClass: GENERATED_FILE
+generatorVersion: p4-docs-1.0.0
+generatedAt: '2026-08-09T15:39:37+09:00'
+codeCommit: b302856052361b06ff68acb4096e92f83ec53a03
+inputArtifactSha: 56bddbf092bbbde3d6ba6ccc4561e9672dde7644478829a018984799370fea1f
+tests:
+  passed: 22
+  failed: 0
+  skipped: 0
+  exitCode: 0
+promotionStates:
+  IMPLEMENTED: true
+  TESTED: true
+  FIXTURE_EXECUTED: true
+  OBSERVED_EXECUTED: true
+  CANARY_EXECUTED: false
+  PRODUCTION_EXECUTED: false
+  QUALITY_EVALUATED: false
+  CANONICAL_PROMOTED: false
+  ANALYSIS_READY: false
+  ARTICLE_READY: false
+gates:
+  CLEANROOM_REPO_READY: PASS
+  DPDD_SSOT_V1_IMPORTED: PASS_WITH_FINDINGS
+  LEGACY_CLEANUP_READY: PASS
+  DOC_AUTOMATION_READY: PASS
+  COLLECTION_PRODUCER_READY: PARTIAL
+  RAW_TO_SEMANTIC_REPLAY_READY: PASS_WITH_FINDINGS
+  STRUCTURAL_QA_READY: PASS
+  SEMANTIC_QA_READY: NOT_EVALUATED
+  CANARY_PREFLIGHT_READY: PARTIAL
+  MAIN_PROMOTION_READY: PASS_WITH_FINDINGS
+  CRAWL_RELEASE_READY: BLOCKED
+  DATA_READY_RQ1_RQ2A: BLOCKED
+  DATA_READY_RQ2B: BLOCKED
+  ANALYSIS_READY: BLOCKED
+  ARTICLE_RESULT_READY: BLOCKED
+implementedModules:
+- cli
+- collection/approval
+- collection/assets
+- collection/canary
+- collection/detail
+- collection/index
+- collection/policy
+- collection/recorder
+- collection/runner
+- config
+- docs/changelog
+- docs/hashing
+- docs/registry
+- docs/release
+- docs/status
+- docs/sync
+- docs/traceability
+- docs/validate
+- governance/attestation
+- io/hashing
+- io/paths
+- marts/posting
+- marts/results
+- marts/timeseries
+- ncs/corpus
+- ncs/reference
+- ncs/retrieval
+- ncs/source
+- processing/dedup
+- processing/eligibility
+- processing/labels
+- processing/producers
+- processing/requirements
+- processing/tracks
+- qa/bundle
+- qa/lineage
+- qa/schema

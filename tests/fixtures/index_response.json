@@ -1,0 +1,16 @@
+{
+  "data": {
+    "activities": {
+      "nodes": [
+        {
+          "id": "1001",
+          "title": "AI 데이터 분석 인턴"
+        }
+      ],
+      "pageInfo": {
+        "hasNextPage": false,
+        "endCursor": null
+      }
+    }
+  }
+}
